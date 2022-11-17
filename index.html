@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Node + Express + Redis DEMO example</title>
+  </head>
+  <body>
+    <h1>Node + Express + Redis DEMO </h1>   
+    <button onClick="getData()" id="myButton">submit</button>
+    <button onClick="clearRedis()">clear Redis</button>
+    <br /><br />
+    <div id="display">Welcome</div>
+  </body>
+  <script>
+   const clearRedis = (e) =>{    
+    console.log("Clearing");
+    fetch('/clear')
+    .then((response) => response.json())
+    .then((data) => document.getElementById('display').innerHTML= (data));
+  }
+
+
+  const getData = (e) =>{    
+    fetch('/getredis')
+    .then((response) => response.json())
+    .then((data) => document.getElementById('display').innerHTML= data);
+  }
+  
+  </script>
+</html>
